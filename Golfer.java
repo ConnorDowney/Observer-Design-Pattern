@@ -13,26 +13,32 @@ public class Golfer implements Subject {
 
     public void registerObserver(Observer observer)
     {
-
+        observers.add(observer);
     }
 
     public void removeObserver(Observer observer)
     {
-
+        observers.remove(observer);
     }
 
     public void notifyObservers(int strokes, int par)
     {
-
+        for(Observer observer : observers)
+        {
+            observer.update(strokes, par);
+        }
     }
 
     public void enterScore(int strokes, int par)
     {
-
+        
+        notifyObservers(strokes, par);
+        //HoleScoreDisplay hsd = new HoleScoreDisplay(this);
+        //hsd.update(strokes, par);
     }
 
     public String getName()
     {
-
+        return this.name;
     }
 }

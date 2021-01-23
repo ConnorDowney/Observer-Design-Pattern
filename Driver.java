@@ -1,6 +1,5 @@
-package observerdesignpattern;
 
-public class GolfDriver {
+public class Driver {
 
 	public static void main(String[] args) {
 		Golfer golfer = new Golfer("Georgy");
