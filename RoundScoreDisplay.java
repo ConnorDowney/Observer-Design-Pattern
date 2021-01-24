@@ -1,9 +1,17 @@
+/**
+ * A display of the current round of golf
+ * @author Connor Downey
+ */
 public class RoundScoreDisplay implements Observer{
     
     private Subject golfer;
     private int strokesTotal;
     private int parTotal;
 
+    /**
+     * Creates a new display for the round
+     * @param golfer Subject named golfer
+     */
     public RoundScoreDisplay(Subject golfer)
     {
         this.golfer = golfer;
@@ -12,6 +20,11 @@ public class RoundScoreDisplay implements Observer{
         golfer.registerObserver(this);
     }
 
+    /**
+     * Updates the total strokes and total par of the round
+     * @param strokes Number of strokes on this hole
+     * @param par Par on this hole
+     */
     public void update(int strokes, int par)
     {
         strokesTotal += strokes;
@@ -19,6 +32,9 @@ public class RoundScoreDisplay implements Observer{
         displayRoundScore();
     }
 
+    /**
+     * Displays the current round stroke total, par total, and difference of those two
+     */
     private void displayRoundScore()
     {
         System.out.println("Round stats:\nPar: "
